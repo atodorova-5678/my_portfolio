@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksandra Todorova | Founding Marketing Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-ink: #1a1a1a;
+            --color-paper: #faf9f7;
+            --color-warm: #f5f3ef;
+            --color-accent: #c45c26;
+            --color-muted: #6b6b6b;
+            --color-line: #e5e3df;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-paper);
+            color: var(--color-ink);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--color-paper);
+            border-bottom: 1px solid var(--color-line);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.2s forwards;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--color-ink);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--color-muted);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-ink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+            max-width: 700px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.8s forwards;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-display);
+            font-size: 35vw;
+            font-weight: 400;
+            color: var(--color-warm);
+            z-index: 1;
+            user-select: none;
+            line-height: 1;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 1s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-muted);
+            opacity: 0;
+            animation: fadeIn 0.8s ease 1.2s forwards;
+        }
+
+        .scroll-line {
+            width: 40px;
+            height: 1px;
+            background: var(--color-muted);
+            animation: pulse 2s ease infinite;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--color-line);
+            padding-bottom: 1.5rem;
+        }
+
+        .section-number {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: var(--color-accent);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-line);
+            max-width: 1200px;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-meta {
+            position: sticky;
+            top: 8rem;
+            align-self: start;
+        }
+
+        .experience-company {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-role {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+
+        .experience-dates {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-top: 0.5rem;
+        }
+
+        .experience-intro {
+            font-style: italic;
+            color: var(--color-ink);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .experience-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-content h4:first-of-type {
+            margin-top: 0;
+        }
+
+        .experience-content p,
+        .experience-content li {
+            color: var(--color-muted);
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .experience-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-content li {
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .experience-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 4px;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        /* Expandable sections */
+        .expandable-section {
+            border-top: 1px solid var(--color-line);
+            margin-top: 0;
+        }
+
+        .expandable-section:first-of-type {
+            border-top: none;
+        }
+
+        .expandable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .expandable-header:hover {
+            color: var(--color-accent);
+        }
+
+        .expandable-header h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .expand-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .expand-icon::before,
+        .expand-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--color-muted);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .expand-icon::before {
+            width: 12px;
+            height: 1px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .expand-icon::after {
+            width: 1px;
+            height: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .expandable-section.expanded .expand-icon::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+            opacity: 0;
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .expandable-section.expanded .expandable-content {
+            max-height: 600px;
+        }
+
+        .expandable-content ul {
+            padding-bottom: 1rem;
+        }
+
+        /* Portfolio Image */
+        .portfolio-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        /* Earlier Experience */
+        .earlier-role {
+            margin-bottom: 1.5rem;
+        }
+
+        .earlier-role:last-child {
+            margin-bottom: 0;
+        }
+
+        .earlier-role h5 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .earlier-role p {
+            color: var(--color-muted);
+            line-height: 1.7;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--color-warm);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 800px;
+        }
+
+        .education-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item p {
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--color-ink);
+            color: var(--color-paper);
+        }
+
+        .portfolio .section-header {
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .portfolio .section-number,
+        .portfolio .section-title {
+            color: var(--color-paper);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .portfolio-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--color-accent);
+            transition: height 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-4px);
+        }
+
+        .portfolio-card:hover::before {
+            height: 100%;
+        }
+
+        .portfolio-company {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .portfolio-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-paper);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            color: var(--color-accent);
+        }
+
+        .portfolio-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-link:hover svg {
+            transform: translate(3px, -3px);
+        }
+
+        .portfolio-featured {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .portfolio-featured .portfolio-title {
+            font-size: 2rem;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-paper);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--color-accent);
+        }
+
+        .featured-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--color-warm);
+            text-align: center;
+            padding: 8rem 3rem;
+        }
+
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .contact-subtitle {
+            color: var(--color-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--color-ink);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--color-accent);
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--color-muted);
+            border-top: 1px solid var(--color-line);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-decoration {
+                display: none;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .experience-meta {
+                position: static;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-featured {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="nav-logo">Aleksandra Todorova</a>
+        <div class="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Founding Marketing Leader</p>
+            <h1 class="hero-title"><em>Positioning, Messaging</em> & Go-to-Market</h1>
+            <p class="hero-subtitle">Marketing leader with 20+ years building brand, communications, and content functions from zero at high-growth B2B SaaS companies; defining positioning and messaging for complex technical products and translating technical capabilities into clear value propositions that drive adoption.</p>
+        </div>
+        <div class="hero-decoration">A</div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <h3 class="experience-company">Coalesce</h3>
+                <p class="experience-role">Senior Director, Content Strategy & Corporate Communications</p>
+                <p class="experience-dates">2022 – 2026</p>
+            </div>
+            <div class="experience-content">
+                <p class="experience-intro">First senior marketing hire at data transformation platform. Built brand, communications, and content functions, defining messaging and external narrative to enable brand recognition and growth.</p>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleSection(this)">
+                        <h4>Positioning, Messaging & Category Creation</h4>
+                        <span class="expand-icon"></span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul>
+                            <li>Defined product positioning and messaging for complex technical product entering crowded market, translating AI-powered data transformation capabilities into value propositions for technical and business audiences</li>
+                            <li>Evolved narrative as company scaled from Seed through Series B, continuously refining messaging to support enterprise expansion and new product launches</li>
+                            <li>Created messaging frameworks and positioning documents ensuring consistency across all customer touchpoints, marketing materials, and sales conversations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleSection(this)">
+                        <h4>Customer Marketing</h4>
+                        <span class="expand-icon"></span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul>
+                            <li>Created customer storytelling engine: 25+ case studies, 15+ video testimonials, and 50+ referenceable accounts providing sales team with proof points; several customers directly cited peer stories as deciding factor in vendor selection</li>
+                            <li>Built Greatest of All Transformers (GOAT) Awards customer recognition program generating organic social media buzz and pipeline of customer advocates</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleSection(this)">
+                        <h4>Thought Leadership & Content Strategy</h4>
+                        <span class="expand-icon"></span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul>
+                            <li>Shaped thought leadership alongside CEO and founders, creating flagship programs: The Data T podcast featuring industry executives, annual Data Trends research report, and Greatest of All Transformers Awards</li>
+                            <li>Created all external communications including blog posts, product announcements, email campaigns, and social content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expandable-header" onclick="toggleSection(this)">
+                        <h4>Building Brand & Content Function</h4>
+                        <span class="expand-icon"></span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul>
+                            <li>Built brand and communications infrastructure from zero: established messaging frameworks, content processes, and editorial workflows that scaled with company growth</li>
+                            <li>Managed team of full-time employees, contractors, and agency partners</li>
+                            <li>Balanced strategic planning with hands-on execution: defined go-to-market strategy while writing copy, building decks, and shipping materials at pace</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <h3 class="experience-company">Snowflake</h3>
+                <p class="experience-role">Senior Content Marketing Manager</p>
+                <p class="experience-dates">2018 – 2022</p>
+            </div>
+            <div class="experience-content">
+                <p class="experience-intro">Built and scaled content operations for cloud data platform during hypergrowth from $15M to $300M+ ARR and IPO, supporting product launches and go-to-market initiatives.</p>
+                
+                <ul>
+                    <li>Developed content strategy supporting enterprise expansion, translating complex cloud infrastructure and AI/ML capabilities into accessible narratives for diverse audiences</li>
+                    <li>Created high-impact content across formats including customer stories, thought leadership, solution briefs, product announcements, and viral campaigns generating millions of views</li>
+                    <li>Collaborated cross-functionally with Product Marketing, Corporate Communications, Sales, and Developer Relations teams to align content with business priorities and product launches</li>
+                    <li>Operated in fast-paced, high-growth environment managing stakeholder relationships across multiple geographies during public company transition</li>
+                    <li>Established content delivery systems and workflows that scaled with rapid organizational growth</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <h3 class="experience-company">Tandems (SigFig)</h3>
+                <p class="experience-role">Editorial Director</p>
+                <p class="experience-dates">2014 – 2015</p>
+            </div>
+            <div class="experience-content">
+                <p class="experience-intro">First marketing hire at fintech startup. Built brand, content, and communications function from zero.</p>
+                
+                <ul>
+                    <li>Defined positioning and messaging for robo-advisor platform targeting financial advisors</li>
+                    <li>Built team of freelance writers, designers, and agencies for content and brand programs</li>
+                    <li>Launched content partnerships with AOL Daily Finance and US News & World Report</li>
+                    <li>Created data-driven research reports generating earned media coverage (CNBC, Business Insider, MarketWatch)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <h3 class="experience-company">Visual.ly</h3>
+                <p class="experience-role">Editorial Director</p>
+                <p class="experience-dates">2011 – 2014</p>
+            </div>
+            <div class="experience-content">
+                <p class="experience-intro">First marketing hire at content creation platform serving Fortune 500 clients. Built go-to-market strategy, positioning, and all marketing materials from scratch (acquired by Scribble Technologies/Rock Content).</p>
+                
+                <ul>
+                    <li>Defined product positioning and messaging for new-to-market product, creating all sales and marketing materials</li>
+                    <li>Built and managed operations supporting 200+ freelance content creators, establishing scalable processes and quality standards</li>
+                    <li>Worked directly with Fortune 500 clients including Cisco, Intel, CBS, Yahoo, Zillow, Oracle on content strategy and brand positioning</li>
+                    <li>Led all external communications and company blog</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <h3 class="experience-company">Earlier Experience</h3>
+                <p class="experience-dates">2003 – 2018</p>
+            </div>
+            <div class="experience-content">
+                <div class="earlier-role">
+                    <h5>Strategic Content Marketing Advisor (2015-2018)</h5>
+                    <p>Advised B2B SaaS startups (Strava, Credit Sesame, QA2L) on positioning, messaging, and go-to-market strategy; generated earned media coverage (Bloomberg, Yahoo Finance, USA Today)</p>
+                </div>
+                <div class="earlier-role">
+                    <h5>Mint.com (Intuit) Editor (2010-2011)</h5>
+                    <p>Led content for PLG fintech platform; grew traffic 3x, won OMMA award 2x, managed 20+ writers</p>
+                </div>
+                <div class="earlier-role">
+                    <h5>Dow Jones Senior Writer (2003-2010)</h5>
+                    <p>Financial journalist with exceptional writing skills and ability to translate complex topics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Selected Work</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card portfolio-featured fade-in">
+                <div>
+                    <span class="featured-badge">Favorite Project</span>
+                    <h3 class="portfolio-title">The Little Book of Big Dad-a Jokes</h3>
+                    <p class="portfolio-desc">Creative brand campaign and conference giveaway. The book was a hit on the expo floor at Snowflake Summit—one Snowflake architect even started his session by reading jokes from it.</p>
+                </div>
+                <div>
+                    <img src="dada-jokes-book.png" alt="The Little Book of Big Dad-a Jokes" class="portfolio-image">
+                </div>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce</span>
+                <h3 class="portfolio-title">Customer Case Studies</h3>
+                <p class="portfolio-desc">25+ case studies, 15+ video testimonials, and 50+ referenceable accounts providing sales team with proof points.</p>
+                <a href="https://coalesce.io/customer-stories/" class="portfolio-link" target="_blank">
+                    View Stories
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce</span>
+                <h3 class="portfolio-title">The Data T Podcast</h3>
+                <p class="portfolio-desc">Flagship thought leadership program featuring industry executives.</p>
+                <a href="https://coalesce.io/podcast/" class="portfolio-link" target="_blank">
+                    Listen Now
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce</span>
+                <h3 class="portfolio-title">Top Data Trends (Annual Report)</h3>
+                <p class="portfolio-desc">Annual research report establishing thought leadership.</p>
+                <a href="https://coalesce.io/reports/the-top-data-trends-for-2026/" class="portfolio-link" target="_blank">
+                    Read Report
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce</span>
+                <h3 class="portfolio-title">LinkedIn Lead Gen Content</h3>
+                <p class="portfolio-desc">Example of derivative content produced specifically for LinkedIn lead gen from the annual Data Trends report.</p>
+                <a href="https://www.linkedin.com/posts/xavier-de-boisredon_step-by-step-ai-readiness-framework-after-activity-7413919235048972288--c0p/" class="portfolio-link" target="_blank">
+                    View Post
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce</span>
+                <h3 class="portfolio-title">Videos</h3>
+                <p class="portfolio-desc">Product demos, customer testimonials, and educational content.</p>
+                <a href="https://coalesce.io/videos/" class="portfolio-link" target="_blank">
+                    Watch Videos
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce (Paid)</span>
+                <h3 class="portfolio-title">O'Reilly Technical Guide</h3>
+                <p class="portfolio-desc">Accelerating Data Pipeline Development</p>
+                <a href="https://coalesce.io/reports/oreilly-guide-accelerating-data-pipeline-development/" class="portfolio-link" target="_blank">
+                    View Guide
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Coalesce (Paid)</span>
+                <h3 class="portfolio-title">O'Reilly Report</h3>
+                <p class="portfolio-desc">Automating Data Transformations</p>
+                <a href="https://coalesce.io/all-things-data/oreilly-report-automating-data-transformations/" class="portfolio-link" target="_blank">
+                    View Report
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Snowflake</span>
+                <h3 class="portfolio-title">Snowflake: The Definitive Guide</h3>
+                <p class="portfolio-desc">Worked with author Joice Avilla to ensure she has all knowledge, connections, resources available to her within Snowflake to write the book; Snowflake sponsored the 1st edition to use in DG campaigns.</p>
+                <a href="https://www.amazon.com/Snowflake-Definitive-Architecting-Designing-Deploying/dp/1098103823/" class="portfolio-link" target="_blank">
+                    View Book
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="portfolio-card fade-in">
+                <span class="portfolio-company">Snowflake</span>
+                <h3 class="portfolio-title">Full-Time Model Campaign</h3>
+                <p class="portfolio-desc">Grassroots campaign with the DevRel team (videos / photos shot on my iPhone).</p>
+                <div class="featured-links">
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:6915689254442467328/" class="portfolio-link" target="_blank">
+                        April Fools Video
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/atodorova_snowflakesummit-moretimetomodel-activity-6920772438226063360-4A3A" class="portfolio-link" target="_blank">
+                        Snowflake Summit Promo
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="education-grid fade-in">
+            <div class="education-item">
+                <h3>New York University</h3>
+                <p>Master of Arts, Journalism</p>
+            </div>
+            <div class="education-item">
+                <h3>American University in Bulgaria</h3>
+                <p>Bachelor of Arts, Journalism & Mass Communications; Political Science</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="contact-title">Let's <em>connect</em></h2>
+        <p class="contact-subtitle">San Francisco Bay Area</p>
+        <div class="contact-links">
+            <a href="mailto:atodorova@gmail.com" class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 6L12 13L2 6"/>
+                </svg>
+                atodorova@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/atodorova" class="contact-link" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Aleksandra Todorova</p>
+    </footer>
+
+    <script>
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Expandable sections toggle
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
